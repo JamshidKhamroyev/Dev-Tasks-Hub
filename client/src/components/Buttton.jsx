@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Buttton({ title, ColorType = "dark" }) {
+function Buttton({ title, ColorType, BtnType = 'button' }) {
     let buttonClass = '';
 
     switch (ColorType) {
@@ -12,7 +12,7 @@ function Buttton({ title, ColorType = "dark" }) {
             break;
     }
     return (
-        <button className={`py-2.5 px-6 font-Inter font-medium text-lg rounded-lg ${buttonClass}`}>
+        <button className={`py-1.5 sm:py-2.5 px-4 sm:px-6 font-Inter font-medium text-sm sm:text-lg rounded-lg ${buttonClass}`}>
             {title}
         </button>
     )
