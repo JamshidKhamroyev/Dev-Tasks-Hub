@@ -5,7 +5,7 @@ function MainLayouts() {
     return (
         <>
             <header></header>
-            <main className='max-w-[1440px] w-full mx-auto'>
+            <main className='w-full'>
                 <Outlet />
             </main>
             <footer></footer>

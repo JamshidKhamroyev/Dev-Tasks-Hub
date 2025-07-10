@@ -3,7 +3,7 @@ import Button from '../components/Buttton'
 
 const HeroPage = () => {
     return (
-        <section className="py-16 md:py-20 font-Inter bg-gradient-to-b from-[#BCBFFF] to-[#F6EAFF]">
+        <section className="py-16 md:py-20 lg:px-28 md:px-8 px-1 font-Inter bg-gradient-to-b from-[#BCBFFF] to-[#F6EAFF]">
             {/* Title & Description */}
             <div className="max-w-[730px] w-full mx-auto px-4 text-center">
                 <h1 className="font-Playfair font-medium text-3xl sm:text-5xl md:text-7xl leading-tight">

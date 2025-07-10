@@ -5,3 +5,9 @@
     --font-Inter: "Inter", "sans-serif";
     --color-darkColor: #191919;
 }
+
+::-webkit-scrollbar{
+    height: 4px;
+    width: 4px;
+    background: #f8deff;
+}
