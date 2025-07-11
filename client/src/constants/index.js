@@ -1,3 +1,4 @@
+// import icons
 import { FiSearch, FiUpload, FiAward } from "react-icons/fi";
 import { IoMailOpenSharp, IoLogoTwitter, IoLogoFacebook } from "react-icons/io5";
 import { RiInstagramFill } from "react-icons/ri";
