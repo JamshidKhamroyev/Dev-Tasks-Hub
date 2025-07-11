@@ -27,9 +27,19 @@ app.use(cookieParser())
 
 // Routes
 const userRoutes = require("./src/routes/user.route")
+const { default: mongoose } = require("mongoose")
 
 app.use("/api/user", userRoutes)
 
-app.listen(process.env.PORT, () => {
-    console.log(`Server running on localhost:${process.env.PORT}`)
-})
+const startApp = async () => {
+	try {
+		await mongoose.connect(process.env.MONGO_URL, { dbName: "DTH" }).then(() => console.log("Db connected succesfull"))
+		app.listen(process.env.PORT, () => {
+			console.log(`Server running on localhost:${process.env.PORT}`)
+		})
+	} catch (error) {
+		console.log("Error in index.js", error.message);
+	}
+}
+
+startApp()

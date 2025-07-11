@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 
-export const authMiddleware = (req, res, next) => {
+const authMiddleware = (req, res, next) => {
   const token = req.cookies.dev_tasks_hub;
   if (!token) return res.status(401).json({ message: "Unauthorized" });
   try {
