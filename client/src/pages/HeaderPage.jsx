@@ -21,7 +21,7 @@ function HeaderPage() {
     )
 
     return (
-        <header className="bg-white shadow-inner py-4 px-4 md:px-10 lg:px-28 font-Inter relative z-50">
+        <header className="bg-white shadow-inner py-1.5 md:py-4 px-4 md:px-10 lg:px-28 font-Inter relative z-50">
             <div className="w-full flex justify-between items-center gap-6 md:gap-10 max-w-[1400px] mx-auto">
 
                 {/* Logo */}

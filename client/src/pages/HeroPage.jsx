@@ -17,7 +17,7 @@ const HeroPage = () => {
             </div>
 
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 sm:justify-center items-center mt-6 md:mt-8 px-4">
+            <div className="flex  gap-4 sm:justify-center items-center mt-6 md:mt-8 px-4">
                 <Button title="Request demo" ColorType="dark" />
                 <Button title="Ask a question" ColorType="light" />
             </div>
