@@ -7,20 +7,20 @@ import { footerMenu, footerMedia } from '../constants'
 function FooterPage() {
     return (
         <footer className="py-6 px-4 md:px-10 lg:px-28 font-Inter bg-white shadow-inner">
-            <div className="w-full flex flex-col md:flex-row justify-between items-center gap-6 md:gap-10">
-                {/* Logo */}
-                <div className="shrink-0">
-                    <img
-                        src={LogoFooter}
-                        alt="Company Logo"
-                        className="size-16 object-contain"
-                    />
-                </div>
+            <div className="max-w-[1400px] mx-auto w-full flex flex-col gap-6 md:gap-10">
+                {/* Top Part: Logo & Menu */}
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 md:gap-10">
+                    {/* Logo */}
+                    <div className="shrink-0">
+                        <img
+                            src={LogoFooter}
+                            alt="Company Logo"
+                            className="size-16 object-contain"
+                        />
+                    </div>
 
-                {/* Navigation & Social */}
-                <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-10">
                     {/* Footer Menu */}
-                    <ul className="flex flex-wrap justify-center gap-6">
+                    <ul className="flex flex-wrap justify-start gap-4 sm:gap-6">
                         {footerMenu.map(({ id, title, link }) => (
                             <li
                                 key={id}
@@ -28,15 +28,17 @@ function FooterPage() {
                             >
                                 <a
                                     href={link}
-                                    className="text-base text-darkColor hover:text-primary transition-colors duration-300"
+                                    className="text-sm sm:text-base text-darkColor hover:text-primary transition-colors duration-300"
                                 >
                                     {title}
                                 </a>
                             </li>
                         ))}
                     </ul>
+                </div>
 
-                    {/* Social Media Icons */}
+                {/* Bottom Part: Social Icons */}
+                <div className="flex justify-start md:justify-end">
                     <ul className="flex items-center gap-4">
                         {footerMedia.map(({ id, icon: Icon, link }) => (
                             <li
