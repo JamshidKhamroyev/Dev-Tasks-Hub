@@ -6,13 +6,13 @@ import FooterPage from '../pages/FooterPage'
 
 function MainLayouts() {
     return (
-        <>
+        <div className='w-full max-w-[1400px] mx-auto min-h-screen'>
             <HeaderPage />
             <main className='w-full'>
                 <Outlet />
             </main>
             <FooterPage />
-        </>
+        </div>
     )
 }
 

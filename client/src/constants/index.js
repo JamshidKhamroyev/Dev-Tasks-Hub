@@ -17,17 +17,17 @@ export const headerMenu = [
   },
   {
     id: uuidv4(),
-    title: 'Features',
+    title: 'Pricing',
     link: '#',
   },
   {
     id: uuidv4(),
-    title: 'Features',
+    title: 'Blog',
     link: '#',
   },
   {
     id: uuidv4(),
-    title: 'Features',
+    title: 'Community',
     link: '#',
   },
 ];
