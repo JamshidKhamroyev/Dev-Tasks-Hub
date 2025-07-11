@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Buttton({ title, ColorType, BtnType = 'button' }) {
+function Buttton({ title, ColorType, BtnType = 'button', onClick }) {
     let buttonClass = '';
 
     switch (ColorType) {
@@ -12,7 +12,7 @@ function Buttton({ title, ColorType, BtnType = 'button' }) {
             break;
     }
     return (
-        <button className={`py-1.5 sm:py-2.5 px-4 sm:px-6 font-Inter font-medium text-sm sm:text-lg rounded-lg hover:-translate-y-1 duration-300 cursor-pointer ${buttonClass}`}>
+        <button onClick={onClick} className={`py-1.5 sm:py-2.5 px-4 sm:px-6 font-Inter font-medium text-sm sm:text-lg rounded-lg hover:-translate-y-1 duration-300 cursor-pointer ${buttonClass}`}>
             {title}
         </button>
     )

@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import { IoMenuSharp, IoClose } from "react-icons/io5"
 import Logo from '../../public/images/Logo.svg'
 import { headerMenu } from '../constants/index.js'
+import Buttton from '../components/Buttton.jsx'
 
 function HeaderPage() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
-
     const toggleMenu = () => setIsMenuOpen(prev => !prev)
 
     const MenuItem = ({ title, link, onClick }) => (
@@ -21,15 +21,13 @@ function HeaderPage() {
     )
 
     return (
-        <header className="bg-white shadow-inner py-1.5 md:py-4 px-4 md:px-10 lg:px-28 font-Inter relative z-50">
-            <div className="w-full flex justify-between items-center gap-6 md:gap-10 max-w-[1400px] mx-auto">
+        <header className="bg-white shadow-inner fixed w-full top-0 left-0 py-1.5 md:py-2 px-4 md:px-10 lg:px-28 font-Inter z-50">
+            <div className="w-full flex justify-between items-center gap-6 md:gap-10">
 
-                {/* Logo */}
                 <a href="/" className="shrink-0">
                     <img src={Logo} alt="Company Logo" className="w-16 h-16 object-contain" />
                 </a>
 
-                {/* Desktop Navigation */}
                 <nav className="hidden sm:flex flex-1 justify-center items-center gap-6 md:gap-10" aria-label="Primary navigation">
                     <ul className="flex flex-wrap gap-6 md:gap-10">
                         {headerMenu.map(({ id, title, link }) => (
@@ -38,11 +36,8 @@ function HeaderPage() {
                     </ul>
                 </nav>
 
-                {/* Desktop Login Button */}
                 <div className="hidden sm:block">
-                    <button className="py-2.5 px-6 text-sm sm:text-lg rounded-lg bg-darkColor text-white font-medium hover:bg-black/80 active:bg-black transition-colors duration-300">
-                        Login
-                    </button>
+                    <Buttton ColorType={"dark"} title={"Login"} onClick={() => alert("login")}/>
                 </div>
 
                 {/* Mobile Menu Toggle */}
