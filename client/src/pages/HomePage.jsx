@@ -2,6 +2,7 @@ import React from 'react'
 import HeroPage from './HeroPage'
 import HowItWorks from './HowItWorks'
 import FaqPage from './FaqPage'
+import FrontendBenefits from './BenefitsPage'
 
 function HomePage() {
     return (
@@ -9,6 +10,7 @@ function HomePage() {
             <HeroPage />
             <HowItWorks />
             <FaqPage />
+            <FrontendBenefits />
         </>
         
     )

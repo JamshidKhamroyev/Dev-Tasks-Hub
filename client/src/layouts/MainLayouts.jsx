@@ -6,9 +6,9 @@ import FooterPage from '../pages/FooterPage'
 
 function MainLayouts() {
     return (
-        <div className='w-full max-w-[1400px] mx-auto min-h-screen'>
+        <div className='w-full mx-auto min-h-screen'>
             <HeaderPage />
-            <main className='w-full'>
+            <main className='w-full mt-12'>
                 <Outlet />
             </main>
             <FooterPage />

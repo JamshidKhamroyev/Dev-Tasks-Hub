@@ -4,7 +4,6 @@ import Button from '../components/Buttton'
 const HeroPage = () => {
     return (
         <section className="py-16 md:py-20 lg:px-28 md:px-8 px-1 font-Inter bg-gradient-to-b from-[#BCBFFF] to-[#F6EAFF]">
-            {/* Title & Description */}
             <div className="max-w-[730px] w-full mx-auto px-4 text-center">
                 <h1 className="font-Playfair font-medium text-3xl sm:text-5xl md:text-7xl leading-tight">
                     The first <br />
@@ -22,7 +21,6 @@ const HeroPage = () => {
                 <Button title="Ask a question" ColorType="light" />
             </div>
 
-            {/* Image or Demo Block */}
             <div className="mt-6 md:mt-8 px-4">
                 <div className="w-full md:w-[960px] h-[240px] md:h-[435px] rounded-2xl bg-[#525252] mx-auto"></div>
             </div>
