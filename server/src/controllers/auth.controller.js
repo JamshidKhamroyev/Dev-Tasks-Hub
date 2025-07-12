@@ -103,7 +103,7 @@ class AuthController {
             console.error("Error in Me controller", error.message);
             res.status(500).json({ success: false, message: "Server xatosi" });
         }
-    }    
+    }
 }
 
 module.exports = new AuthController()
