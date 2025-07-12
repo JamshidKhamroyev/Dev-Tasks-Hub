@@ -9,7 +9,7 @@ class UserController {
     async getAllUsers(req, res) {
         try {
             const { limit } = req.query
-            const users = await User.find({}).limit(limit).sort({ currentCoin: -1 })
+            const users = await User.find({}).select("-password").limit(limit).sort({ currentCoin: -1 })
             return res.json({ succes: false, data: users })
         } catch (error) {
             console.log("Error in user controller 1", error.message);
@@ -37,12 +37,19 @@ class UserController {
         try {
             const id = req.params.user
             const data = req.body
+            if(data.currentCoin || data.allCoin || data.password || data.email || data.projects || data.level || data.rank || data.createdAt){
+                return res.status(401).json({ succes: false, message: "It isn't change!"})
+            }
 
             if(!data){
                 return res.status(400).json({ succes: false, message: "Data not found"})
             }
 
-            const user = await User.findByIdAndUpdate(id, data, { new: true })
+            if(req.user !== id){
+                return res.status(401).json({ succes: false, message: "Unauthorizated"})
+            }
+
+            const user = await User.findByIdAndUpdate(id, data, { new: true }).select("-password")
             if(!user){
                 return res.status(400).json({ succes: false, message: "User not found"})
             }

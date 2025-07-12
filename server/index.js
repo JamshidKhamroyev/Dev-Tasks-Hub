@@ -4,8 +4,7 @@ const { rateLimit } = require('express-rate-limit')
 require("dotenv").config()
 const helmet = require("helmet")
 const cookieParser = require("cookie-parser")
-
-
+const { default: mongoose } = require("mongoose")
 
 const app = express()
 // Limiter
@@ -27,13 +26,14 @@ app.use(cookieParser())
 
 // Routes
 const userRoutes = require("./src/routes/user.route")
-const { default: mongoose } = require("mongoose")
+const authRoutes = require("./src/routes/auth.route")
 
+app.use("/api/auth", authRoutes)
 app.use("/api/user", userRoutes)
 
 const startApp = async () => {
 	try {
-		await mongoose.connect(process.env.MONGO_URL, { dbName: "DTH" }).then(() => console.log("Db connected succesfull"))
+		await mongoose.connect(process.env.MONGO_URL, { dbName: "DTH" }).then(() => console.log("Db connected succesfull")).catch((e) => console.log("dsf",e))
 		app.listen(process.env.PORT, () => {
 			console.log(`Server running on localhost:${process.env.PORT}`)
 		})
