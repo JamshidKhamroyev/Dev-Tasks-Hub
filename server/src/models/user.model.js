@@ -1,9 +1,11 @@
 const { model, Schema, default: mongoose } = require("mongoose")
 
 const userSchema = new Schema({
-    username: { type: String, unique: true },
+    username: { type: String },
     email: { type: String, unique: true, required: true },
     password: { type: String, required: true},
+    fullName: { type: String, required: true },
+    location: { type: String },
     profilePic: { type: String },
     projects: [
         { type: Schema.Types.ObjectId, ref: "Project" }
