@@ -50,12 +50,12 @@ class AuthController {
 
             const user = await User.findOne({ email });
             if (!user) {
-                return res.status(404).json({ message: "Email yoki parol noto'g'ri" });
+                return res.status(404).json({ message: "Email noto'g'ri" });
             }
 
             const isValid = await bcrypt.compare(password, user.password);
             if (!isValid) {
-                return res.status(400).json({ message: "Email yoki parol noto'g'ri" });
+                return res.status(400).json({ message: "Parol noto'g'ri" });
             }
 
             const token = jwt.sign(
