@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { FaEnvelope, FaLock, FaSpinner } from "react-icons/fa";
+import { FaEnvelope, FaLock, FaSpinner, FaEye, FaEyeSlash } from "react-icons/fa";
 import { onOpenRegister, oncloseLogin } from "../../reducers/modalReducer";
 import Modal from "./Modal";
 import { api } from "../../api";
@@ -12,7 +12,17 @@ const LoginModal = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isPassword, setIsPassword] = useState(true)
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (!isOpenLogin) {
+      setEmail('');
+      setPassword('');
+      setIsPassword(true);
+      setLoading(false);
+    }
+  }, [isOpenLogin]);
 
   if (!isOpenLogin) return null;
 
@@ -28,6 +38,8 @@ const LoginModal = () => {
 
     try {
       const res = await api.post("/api/auth/login", { email, password });
+      console.log(res);
+
       toast.success("Muvaffaqiyatli kirildi");
       dispatch(oncloseLogin())
       setEmail("")
@@ -66,22 +78,28 @@ const LoginModal = () => {
           <div className="relative">
             <FaLock className="absolute top-1/2 left-3 -translate-y-1/2 text-gray-400" />
             <input
-              type="password"
+              type={isPassword ? 'password' : 'text'}
               id="password"
               className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400"
               placeholder="••••••••"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            <button
+              type="button"
+              className="size-4 absolute top-1/2 right-3 -translate-y-1/2 text-gray-400 cursor-pointer outline-none"
+              onClick={() => setIsPassword(!isPassword)}
+            >
+              {isPassword ? <FaEye /> : <FaEyeSlash />}
+            </button>
           </div>
         </div>
 
         <button
           type="submit"
           disabled={loading}
-          className={`w-full flex justify-center items-center gap-2 bg-indigo-400 hover:bg-indigo-500 text-white py-2 rounded shadow ${
-            loading ? "opacity-50 cursor-not-allowed" : ""
-          }`}
+          className={`w-full flex justify-center items-center gap-2 bg-indigo-400 hover:bg-indigo-500 text-white py-2 rounded shadow ${loading ? "opacity-50 cursor-not-allowed" : ""
+            }`}
         >
           {loading && (
             <FaSpinner className="animate-spin h-4 w-4" />
