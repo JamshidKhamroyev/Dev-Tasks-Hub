@@ -6,8 +6,6 @@ import HeroPage from './HeroPage'
 import HowItWorks from './HowItWorks'
 import FaqPage from './FaqPage'
 import FrontendBenefits from './BenefitsPage'
-import LoginModal from '../components/modals/LoginModal'
-import RegisterModal from '../components/modals/RegisterModal'
 
 function HomePage() {
     const [isLoader, setIsLoader] = useState(true)
@@ -22,8 +20,6 @@ function HomePage() {
         <>
             {!isLoader ? (
                 <>
-                    <LoginModal />
-                    <RegisterModal />
                     <HeroPage />
                     <HowItWorks />
                     <FaqPage />

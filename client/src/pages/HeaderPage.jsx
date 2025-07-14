@@ -3,12 +3,9 @@ import { IoMenuSharp, IoClose } from "react-icons/io5"
 import Logo from '../../public/images/Logo.svg'
 import { headerMenu } from '../constants/index.js'
 import Buttton from '../components/Buttton.jsx'
-import { useDispatch } from 'react-redux'
-import { onOpenLogin } from '../reducers/modalReducer.js'
 
 function HeaderPage() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
-    const dispatch = useDispatch()
     const toggleMenu = () => setIsMenuOpen(prev => !prev)
 
     const MenuItem = ({ title, link, onClick }) => (
@@ -40,7 +37,7 @@ function HeaderPage() {
                 </nav>
 
                 <div className="hidden sm:block">
-                    <Buttton ColorType={"dark"} title={"Login"} onClick={() => dispatch(onOpenLogin())}/>
+                    <Buttton ColorType={"dark"} title={"Login"} onClick={() => alert("login")}/>
                 </div>
 
                 {/* Mobile Menu Toggle */}

@@ -3,27 +3,18 @@ import { createSlice } from '@reduxjs/toolkit'
 export const modalSlice = createSlice({
   name: 'modal',
   initialState: {
-    isOpenLogin: false,
-    isOpenRegister: false,
+    isOpen: false,
   },
   reducers: {
-    onOpenLogin: (state) => {
-      state.isOpenLogin = true
-      state.isOpenRegister = false
+    onOpen: (state) => {
+        state.isOpen = true
     },
-    oncloseLogin: (state) => {
-      state.isOpenLogin = false
-    },
-    onOpenRegister: (state) => {
-      state.isOpenLogin = false
-      state.isOpenRegister = true
-    },
-    oncloseRegister: (state) => {
-      state.isOpenRegister = false
+    onclose: (state) => {
+        state.isOpen = false
     }
   },
 })
 
-export const { onOpenLogin, onOpenRegister, oncloseLogin, oncloseRegister } = modalSlice.actions
+export const { onOpen, onclose } = modalSlice.actions
 
 export default modalSlice.reducer
